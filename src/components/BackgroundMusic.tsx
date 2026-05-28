@@ -69,9 +69,9 @@ interface LoadingScreenProps {
 }
 
 const VesakLoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
-  // Auto-transition after 4 seconds
+  // Auto-transition after 1 second
   useEffect(() => {
-    const t = setTimeout(onDone, 4000);
+    const t = setTimeout(onDone, 1000);
     return () => clearTimeout(t);
   }, [onDone]);
 
@@ -340,7 +340,7 @@ const VesakLoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
               className="h-full rounded-full"
               initial={{ width: '0%' }}
               animate={{ width: '100%' }}
-              transition={{ duration: 3.4, ease: 'easeInOut' }}
+              transition={{ duration: 0.85, ease: 'easeInOut' }}
               style={{
                 background: 'linear-gradient(90deg, #78350f, #f59e0b, #fde68a, #f59e0b, #78350f)',
                 backgroundSize: '200% 100%',
