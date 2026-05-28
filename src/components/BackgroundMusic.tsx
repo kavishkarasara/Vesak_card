@@ -277,15 +277,6 @@ const VesakLoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
           style={{ width: 280, height: 280, background: 'radial-gradient(ellipse, rgba(245,158,11,0.08) 0%, transparent 70%)' }}
         />
 
-        {/* Dharma Wheel */}
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-          className="mb-5 opacity-50"
-          style={{ fontSize: 36 }}
-        >
-          ☸️
-        </motion.div>
 
         {/* Main Sinhala text */}
         <motion.div

@@ -19,17 +19,17 @@ const imageModules = import.meta.glob('../../image/*.{png,jpg,jpeg,webp,PNG,JPG,
 // Poetic Sinhala and style mapping helper based on filename keywords
 const getCoverDetails = (id: string, index: number, imagePath: string): CoverInfo => {
   const lowerName = id.toLowerCase();
-  
+
   // Format a beautiful, readable title from the filename
   let cleanTitle = id
     .replace(/_\d+$/, '') // Remove timestamps if any (e.g. _202605281600)
     .replace(/[_,.-]/g, ' ') // Replace underscores/dashes with spaces
     .replace(/\s+/g, ' ') // Normalize spaces
     .trim();
-    
+
   // Capitalize the first letter of each word
   cleanTitle = cleanTitle.replace(/\b\w/g, c => c.toUpperCase());
-  
+
   if (cleanTitle.length > 25) {
     cleanTitle = cleanTitle.substring(0, 22) + '...';
   }
@@ -39,11 +39,11 @@ const getCoverDetails = (id: string, index: number, imagePath: string): CoverInf
   }
 
   // Default theme properties (Golden Lantern-style)
-  let titleSinhala = 'වෙසක් සුබපැතුම්';
+  let titleSinhala = '';
   let accentColor = '#f59e0b';
   let shadowColor = 'rgba(245, 158, 11, 0.4)';
   let colorClass = 'from-amber-500/20 to-orange-600/20 border-orange-500/30';
-  
+
   // Dynamic keyword checking for high-fidelity custom styles
   if (lowerName.includes('stupa') || lowerName.includes('sthoopa') || lowerName.includes('chaitya')) {
     titleSinhala = 'පිංබර චෛත්‍යය';
@@ -115,11 +115,11 @@ const FALLBACK_COVERS: CoverInfo[] = [
 
 export const CARD_COVERS: CoverInfo[] = Object.keys(imageModules).length > 0
   ? Object.keys(imageModules).map((filePath, index) => {
-      const fileName = filePath.substring(filePath.lastIndexOf('/') + 1);
-      const id = fileName.replace(/\.[^/.]+$/, ""); // Remove extension to get unique ID
-      const imagePath = imageModules[filePath].default;
-      return getCoverDetails(id, index, imagePath);
-    })
+    const fileName = filePath.substring(filePath.lastIndexOf('/') + 1);
+    const id = fileName.replace(/\.[^/.]+$/, ""); // Remove extension to get unique ID
+    const imagePath = imageModules[filePath].default;
+    return getCoverDetails(id, index, imagePath);
+  })
   : FALLBACK_COVERS;
 
 interface CardCoverProps {
@@ -130,11 +130,11 @@ interface CardCoverProps {
 
 export const CardCover: React.FC<CardCoverProps> = ({ id, className = '' }) => {
   const activeCover = CARD_COVERS.find((c) => c.id === id) || CARD_COVERS[0];
-  
+
   return (
-    <img 
-      src={activeCover.imagePath} 
-      alt={activeCover.title} 
+    <img
+      src={activeCover.imagePath}
+      alt={activeCover.title}
       className={`${className} object-cover rounded-2xl w-full h-full shadow-md border border-amber-500/25`}
     />
   );

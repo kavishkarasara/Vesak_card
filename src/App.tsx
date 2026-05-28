@@ -257,7 +257,7 @@ function App() {
                 {/* Selected Cover Info */}
                 <div className="w-full md:w-1/3 flex flex-col items-center p-4 rounded-2xl bg-black/20 border border-white/5">
                   <div className="w-28 aspect-[2/3] flex items-center justify-center overflow-hidden rounded-2xl shadow-md border border-amber-500/10">
-                    <CardCover id={selectedCover} className="w-full h-full animate-sway" isAnimated={true} />
+                    <CardCover id={selectedCover} className="w-full h-full" isAnimated={false} />
                   </div>
                   <div className="text-center mt-3">
                     <h3 className="font-sinhala text-base font-bold text-amber-300">
