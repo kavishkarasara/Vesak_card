@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    @apply bg-[#030712] text-gray-100 overflow-x-hidden;
+  }
+}
+
+/* Custom Sinhala Typography class */
+.font-sinhala {
+  font-family: 'Noto Serif Sinhala', serif;
+}
+
+/* Custom Name Typography with luxurious Google Font Playfair Display */
+.font-name {
+  font-family: 'Playfair Display', 'Noto Serif Sinhala', serif;
+}
+
+/* Custom Glassmorphism Panels */
+.glass-panel {
+  background: rgba(17, 24, 39, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-heavy {
+  background: rgba(10, 15, 30, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(245, 158, 11, 0.5); /* Amber/Orange glow */
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.25);
+  outline: none;
+}
+
+/* Glowing text and boxes */
+.text-glow-gold {
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.6), 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+.text-glow-blue {
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.6), 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.glow-orange {
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.35);
+}
+
+/* Custom sway animation for lanterns */
+@keyframes sway {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.animate-sway {
+  animation: sway 6s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+/* Soft fire flickering effect for lamps */
+@keyframes fire-flicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.8));
+  }
+  25% {
+    transform: scale(1.08) rotate(1deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.95));
+  }
+  50% {
+    transform: scale(0.95) rotate(-2deg);
+    opacity: 0.85;
+    filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.7));
+  }
+  75% {
+    transform: scale(1.05) rotate(0deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.9));
+  }
+}
+
+.animate-fire {
+  animation: fire-flicker 2.5s ease-in-out infinite;
+}
+
+/* Soft golden aura pulse */
+@keyframes aura-pulse {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.05);
+  }
+}
+
+.animate-aura {
+  animation: aura-pulse 4s ease-in-out infinite;
+}
+
+/* Hide scrollbar but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 3D Transform Helpers */
+.perspective-3d {
+  perspective: 2000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Custom 3D folds styling */
+.card-panel-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Background Music Sound Wave Animations */
+@keyframes music-bar-1 {
+  0%, 100% { height: 30%; }
+  50% { height: 90%; }
+}
+@keyframes music-bar-2 {
+  0%, 100% { height: 100%; }
+  50% { height: 40%; }
+}
+@keyframes music-bar-3 {
+  0%, 100% { height: 40%; }
+  50% { height: 100%; }
+}
+@keyframes music-bar-4 {
+  0%, 100% { height: 75%; }
+  50% { height: 25%; }
+}
+
+.animate-music-bar-1 {
+  animation: music-bar-1 1s ease-in-out infinite;
+}
+.animate-music-bar-2 {
+  animation: music-bar-2 0.8s ease-in-out infinite;
+  animation-delay: 0.15s;
+}
+.animate-music-bar-3 {
+  animation: music-bar-3 1.2s ease-in-out infinite;
+  animation-delay: 0.05s;
+}
+.animate-music-bar-4 {
+  animation: music-bar-4 0.9s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
