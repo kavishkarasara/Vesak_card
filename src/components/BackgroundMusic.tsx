@@ -69,9 +69,9 @@ interface LoadingScreenProps {
 }
 
 const VesakLoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
-  // Auto-transition after 1 second
+  // Auto-transition after 2 seconds
   useEffect(() => {
-    const t = setTimeout(onDone, 1000);
+    const t = setTimeout(onDone, 2000);
     return () => clearTimeout(t);
   }, [onDone]);
 
@@ -132,8 +132,8 @@ const VesakLoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
       key="loading"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0, scale: 1.04 }}
-      transition={{ duration: 0.8, ease: 'easeInOut' }}
+      exit={{ opacity: 0, scale: 1.06, filter: 'blur(8px)' }}
+      transition={{ duration: 0.7, ease: 'easeInOut' }}
       className="fixed inset-0 z-[9999] overflow-hidden select-none"
       style={{
         background: 'radial-gradient(ellipse at 30% 40%, #0f0a1e 0%, #030712 45%, #060210 100%)',
@@ -328,33 +328,42 @@ const VesakLoadingScreen: React.FC<LoadingScreenProps> = ({ onDone }) => {
         </motion.div>
 
 
-        {/* Loading progress bar */}
+        {/* Smooth pulsing glow dots */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-          className="flex flex-col items-center gap-2"
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="flex items-center justify-center gap-3 mt-6"
         >
-          <div className="w-52 h-[3px] rounded-full overflow-hidden" style={{ background: 'rgba(245,158,11,0.1)' }}>
-            <motion.div
-              className="h-full rounded-full"
-              initial={{ width: '0%' }}
-              animate={{ width: '100%' }}
-              transition={{ duration: 0.85, ease: 'easeInOut' }}
+          {[0, 1, 2, 3, 4].map((i) => (
+            <motion.span
+              key={i}
+              animate={{
+                scale: [1, 1.6, 1],
+                opacity: [0.3, 1, 0.3],
+                boxShadow: [
+                  '0 0 4px rgba(245,158,11,0.3)',
+                  '0 0 14px rgba(245,158,11,0.9)',
+                  '0 0 4px rgba(245,158,11,0.3)',
+                ],
+              }}
+              transition={{
+                duration: 1.4,
+                delay: i * 0.18,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
               style={{
-                background: 'linear-gradient(90deg, #78350f, #f59e0b, #fde68a, #f59e0b, #78350f)',
-                backgroundSize: '200% 100%',
-                animation: 'shimmer 1.5s infinite',
+                display: 'inline-block',
+                width: i === 2 ? 10 : 6,
+                height: i === 2 ? 10 : 6,
+                borderRadius: '50%',
+                background: i === 2
+                  ? 'radial-gradient(circle, #fde68a, #f59e0b)'
+                  : 'radial-gradient(circle, #f59e0b, #fb923c)',
               }}
             />
-          </div>
-          <motion.span
-            animate={{ opacity: [0.4, 1, 0.4] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="text-amber-500/60 text-[10px] uppercase tracking-widest"
-          >
-            ☸ loading...
-          </motion.span>
+          ))}
         </motion.div>
       </div>
     </motion.div>
