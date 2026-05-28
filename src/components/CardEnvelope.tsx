@@ -35,21 +35,25 @@ export const CardEnvelope: React.FC<CardEnvelopeProps> = ({
       const width = window.innerWidth;
       if (isOpen) {
         if (width < 360) {
-          // Extremely narrow screen (e.g. 320px)
-          // Opened card width is 480px. Fit in screen with 12px padding on each side (296px)
-          setScale(Math.max(0.58, (width - 24) / 480));
+          // Extremely narrow screen
+          // Opened card width is 560px (280 * 2).
+          setScale(Math.max(0.48, (width - 20) / 560));
         } else if (width < 640) {
           // Mobile screens
-          // Scale to occupy exactly 90% of the viewport width
-          setScale(Math.min(0.9, (width * 0.9) / 480));
+          // Scale to occupy 95% of the viewport width
+          setScale(Math.min(0.95, (width * 0.95) / 560));
         } else {
           // Tablet / Desktop screens
           // Base width is 320px, opened width is 640px.
-          // Scale to occupy 90% of screen width, maxed out at 1.0
           setScale(Math.min(1.0, (width * 0.9) / 640));
         }
       } else {
-        setScale(1.0);
+        // Closed state scaling for very small screens
+        if (width < 300) {
+          setScale(width / 320);
+        } else {
+          setScale(1.0);
+        }
       }
     };
 
@@ -112,7 +116,7 @@ export const CardEnvelope: React.FC<CardEnvelopeProps> = ({
       {/* 3D Greeting Card Container */}
       <motion.div
         layout
-        className="relative preserve-3d flex w-[240px] h-[360px] sm:w-[320px] sm:h-[420px] rounded-3xl shadow-xl"
+        className="relative preserve-3d flex w-[280px] h-[420px] sm:w-[320px] sm:h-[460px] rounded-3xl shadow-xl"
         style={{
           boxShadow: isOpen ? `0 0 50px ${activeCover.shadowColor}` : '0 15px 35px rgba(0,0,0,0.5)',
           originX: isOpen ? 0 : 0.5,

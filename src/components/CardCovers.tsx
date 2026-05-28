@@ -46,42 +46,42 @@ const getCoverDetails = (id: string, index: number, imagePath: string): CoverInf
 
   // Dynamic keyword checking for high-fidelity custom styles
   if (lowerName.includes('stupa') || lowerName.includes('sthoopa') || lowerName.includes('chaitya')) {
-    titleSinhala = 'පිංබර චෛත්‍යය';
+    titleSinhala = '';
     accentColor = '#38bdf8';
     shadowColor = 'rgba(56, 189, 248, 0.4)';
     colorClass = 'from-sky-500/20 to-indigo-600/20 border-sky-500/30';
   } else if (lowerName.includes('bo_leaf') || lowerName.includes('bo-leaf') || lowerName.includes('bo_pat') || lowerName.includes('bopat')) {
-    titleSinhala = 'පූජනීය බෝ පත';
+    titleSinhala = '';
     accentColor = '#eab308';
     shadowColor = 'rgba(234, 179, 8, 0.4)';
     colorClass = 'from-yellow-500/20 to-amber-500/20 border-amber-400/30';
   } else if (lowerName.includes('lantern') || lowerName.includes('kudu') || lowerName.includes('pahan_kudu')) {
-    titleSinhala = 'වෙසක් පහන් කූඩුව';
+    titleSinhala = '';
     accentColor = '#f97316';
     shadowColor = 'rgba(249, 115, 22, 0.4)';
     colorClass = 'from-orange-500/20 to-red-600/20 border-orange-400/30';
   } else if (lowerName.includes('lamp') || lowerName.includes('pahana') || lowerName.includes('mati_pahan')) {
-    titleSinhala = 'දැල්වූ මැටි පහන';
+    titleSinhala = '';
     accentColor = '#fbbf24';
     shadowColor = 'rgba(251, 191, 36, 0.4)';
     colorClass = 'from-red-500/20 to-yellow-600/20 border-yellow-500/30';
   } else if (lowerName.includes('buddha') || lowerName.includes('pilimaya') || lowerName.includes('lord') || lowerName.includes('statue')) {
-    titleSinhala = 'ශාන්ත බුදු පියාණන්';
+    titleSinhala = '';
     accentColor = '#fbbf24';
     shadowColor = 'rgba(251, 191, 36, 0.4)';
     colorClass = 'from-yellow-500/20 to-orange-500/20 border-yellow-400/30';
   } else if (lowerName.includes('enlightenment') || lowerName.includes('aura') || lowerName.includes('glowing')) {
-    titleSinhala = 'රන්වන් බුදුරැස්';
+    titleSinhala = '';
     accentColor = '#fbbf24';
     shadowColor = 'rgba(251, 191, 36, 0.4)';
     colorClass = 'from-amber-500/20 to-orange-500/20 border-yellow-400/30';
   } else if (lowerName.includes('stone')) {
-    titleSinhala = 'ශෛලමය බුදු පිළිමය';
+    titleSinhala = '';
     accentColor = '#78716c';
     shadowColor = 'rgba(120, 113, 108, 0.4)';
     colorClass = 'from-stone-500/20 to-neutral-600/20 border-stone-500/30';
   } else if (lowerName.includes('bodhi') || lowerName.includes('bodhiya')) {
-    titleSinhala = 'ශ්‍රී මහා බෝධිය';
+    titleSinhala = '';
     accentColor = '#10b981';
     shadowColor = 'rgba(16, 185, 129, 0.4)';
     colorClass = 'from-emerald-500/20 to-green-600/20 border-emerald-500/30';
