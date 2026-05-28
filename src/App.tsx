@@ -4,6 +4,7 @@ import { Sparkles, Edit2, ChevronLeft, RefreshCw, Send, CheckCircle2 } from 'luc
 import { BackgroundParticles } from './components/BackgroundParticles';
 import { CARD_COVERS, CardCover, CoverType } from './components/CardCovers';
 import { CardEnvelope } from './components/CardEnvelope';
+import { CoverCard } from './components/CoverCard';
 import { VESAK_POEMS, getRandomPoem } from './utils/poems';
 import { decodeCardData, encodeCardData } from './utils/url';
 import { saveCardToDb, fetchCardFromDb } from './utils/db';
@@ -221,32 +222,13 @@ function App() {
 
               {/* Cover Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-5xl">
-                {CARD_COVERS.map((cover) => (
-                  <motion.div
+                {CARD_COVERS.map((cover, index) => (
+                  <CoverCard
                     key={cover.id}
-                    onClick={() => handleSelectCover(cover.id)}
-                    whileHover={{ y: -8, scale: 1.03 }}
-                    className="cursor-pointer rounded-3xl overflow-hidden shadow-xl border border-amber-500/25 relative aspect-[2/3] w-full"
-                  >
-                    <img 
-                      src={cover.imagePath} 
-                      alt={cover.title} 
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                    />
-                    {/* Dark gradient overlay for title legibility */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/25 to-black/85 pointer-events-none" />
-
-                    {/* Luxury gold-framed overlays */}
-                    <div className="absolute inset-2 border border-amber-500/35 rounded-2xl pointer-events-none" />
-                    <div className="absolute inset-2.5 border border-white/5 rounded-[14px] pointer-events-none" />
-
-                    {/* Clean Sinhala Title Overlay */}
-                    <div className="absolute bottom-4 left-4 right-4 z-10 text-center">
-                      <span className="font-sinhala text-sm sm:text-base font-bold text-glow-gold text-white drop-shadow-md">
-                        {cover.titleSinhala}
-                      </span>
-                    </div>
-                  </motion.div>
+                    cover={cover}
+                    index={index}
+                    onSelect={() => handleSelectCover(cover.id)}
+                  />
                 ))}
               </div>
             </motion.div>

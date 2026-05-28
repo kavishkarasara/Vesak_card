@@ -184,3 +184,9 @@
   animation: music-bar-4 0.9s ease-in-out infinite;
   animation-delay: 0.2s;
 }
+
+/* Shimmer animation for image loading skeleton */
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
