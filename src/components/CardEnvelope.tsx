@@ -225,15 +225,8 @@ export const CardEnvelope: React.FC<CardEnvelopeProps> = ({
               <Sparkles className="w-3.5 h-3.5 text-amber-400" />
             </div>
 
-            {/* Title */}
-            <div className="z-10 mt-auto mb-2 text-center">
-              <span className="text-[9px] uppercase tracking-widest text-amber-400/80 font-bold bg-black/60 px-3 py-0.5 rounded-full border border-amber-500/20 block w-max mx-auto mb-1.5 shadow-md">
-                {activeCover.title}
-              </span>
-              <h3 className="font-sinhala text-sm sm:text-base font-bold text-glow-gold text-white drop-shadow-lg">
-                {activeCover.titleSinhala}
-              </h3>
-            </div>
+            {/* Removed Title */}
+            <div className="z-10 mt-auto mb-2 text-center"></div>
 
             {/* Click to open indicator */}
             <div className="mt-2 z-10 text-[8px] sm:text-[9px] font-sinhala text-amber-300 font-semibold animate-pulse bg-black/75 px-3 py-1 rounded-full border border-amber-500/20 shadow-md">

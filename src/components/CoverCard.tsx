@@ -60,12 +60,7 @@ export const CoverCard: React.FC<CoverCardProps> = ({ cover, index, onSelect }) 
       <div className="absolute inset-2 border border-amber-500/35 rounded-2xl pointer-events-none z-20" />
       <div className="absolute inset-2.5 border border-white/5 rounded-[14px] pointer-events-none z-20" />
 
-      {/* Clean Sinhala Title Overlay */}
-      <div className="absolute bottom-4 left-4 right-4 z-30 text-center">
-        <span className="font-sinhala text-sm sm:text-base font-bold text-glow-gold text-white drop-shadow-md">
-          {cover.titleSinhala}
-        </span>
-      </div>
+
     </motion.div>
   );
 };
